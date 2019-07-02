@@ -11,11 +11,17 @@ const updateImage = async () => {
   await page.goto('https://zealous-mccarthy-bc8472.netlify.com/');
   await page.screenshot({path: 'app/quote.png'});
 
-  const element = await page.$(".qig__quote p");
-  const quoteText = await page.evaluate(element => element.textContent, element);
+  const quote = await page.$(".qig__quote p"),
+        author = await page.$(".qig__quote-author"),
+        quoteText = await page.evaluate(element => element.textContent, quote);
+        quoteAuthor = await page.evaluate(element => element.textContent, author);
 
   await browser.close();
-  return quoteText;
+
+  return {
+    quote: quoteText,
+    author: quoteAuthor
+  };
 };
 
 module.exports = updateImage;
