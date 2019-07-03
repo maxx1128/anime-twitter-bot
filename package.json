@@ -4,7 +4,7 @@
   "description": "",
   "main": "puppet.js",
   "scripts": {
-    "dev": "node app/index.js",
+    "send": "node app/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
