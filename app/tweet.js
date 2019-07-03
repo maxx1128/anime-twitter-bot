@@ -1,8 +1,9 @@
-const Twit        = require('twit'),
-      fs          = require('fs'),
-      path        = require('path'),
-      updateImage = require('./image.js'),
-      config      = require('./../config');
+const Twit         = require('twit'),
+      fs           = require('fs'),
+      path         = require('path'),
+      updateImage  = require('./image.js'),
+      tweetContent = require('./tweet-content.js'),
+      config       = require('./../config');
 
 const T = new Twit(config);
 
@@ -17,7 +18,7 @@ const tweetItOut = () => {
 
       else {
         T.post('statuses/update', {
-            status: `"${quote}" ~${author}`,
+            status: tweetContent(quote, author),
             media_ids: new Array(data.media_id_string)
           },
 
