@@ -5,8 +5,14 @@ const defaultViewport = {
   height: 700
 };
 
+{}
+
 const updateImage = async () => {
-  const browser = await puppeteer.launch({ defaultViewport: defaultViewport });
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    defaultViewport: defaultViewport
+  });
   const page = await browser.newPage();
   await page.goto('https://zealous-mccarthy-bc8472.netlify.com/');
   await page.screenshot({path: 'app/quote.png'});
