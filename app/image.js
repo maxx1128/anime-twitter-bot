@@ -5,8 +5,6 @@ const defaultViewport = {
   height: 700
 };
 
-{}
-
 const updateImage = async () => {
   const browser = await puppeteer.launch({
     headless: true,
