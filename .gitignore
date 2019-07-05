@@ -1,2 +1,3 @@
 node_modules/
 app/quote.png
+.env
