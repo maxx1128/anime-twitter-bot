@@ -12,7 +12,7 @@ const updateImage = async () => {
     defaultViewport: defaultViewport
   });
   const page = await browser.newPage();
-  await page.goto('https://zealous-mccarthy-bc8472.netlify.com/');
+  await page.goto('http://www.quotemaker.maxwellantonucci.com/');
   await page.screenshot({path: 'app/quote.png'});
 
   const quote = await page.$(".qig__quote p"),
